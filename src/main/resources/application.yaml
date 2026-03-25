@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Config-Server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ITS-2130-ECA-HDSE-69-70/Capstone-Project-Configurations.git
+          search-paths: platform,services
+        native:
+          search-locations:
+            - classpath:/configurations
+            - classpath:/configurations/platform
+            - classpath:/configurations/services
+
+server:
+  port: 9000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+
+
